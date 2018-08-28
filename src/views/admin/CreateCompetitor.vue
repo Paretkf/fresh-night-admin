@@ -24,12 +24,30 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'CreateCompetitor',
   data () {
     return {
       input: 0
     }
+  },
+  computed: {
+    ...mapGetters({
+      score: 'score'
+    })
+  },
+  methods: {
+    ...mapActions({
+      bindscoreRef: 'bindscoreRef',
+      unbindscoreRef: 'unbindscoreRef'
+    })
+  },
+  created () {
+    this.bindscoreRef()
+  },
+  destroyed () {
+    this.unbindscoreRef()
   }
 }
 </script>
