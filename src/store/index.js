@@ -22,6 +22,10 @@ const state = {
 }
 
 const actions = {
+  updateScore ({commit}, payload) {
+    scoreRef.child(`/G0/part1/referee1/${payload.index}`).set(payload.score)
+    // commit('UPDATE_SCORE', payload)
+  },
   bindscoreRef: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('score', scoreRef)
   }),
@@ -32,6 +36,9 @@ const actions = {
 
 const mutations = {
   ...firebaseMutations
+  // UPDATE_SCORE (state, payload) {
+  //   state.score.G0.part1.referee1[payload.index] = payload.score
+  // }
 }
 
 const getters = {

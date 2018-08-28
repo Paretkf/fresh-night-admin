@@ -3,19 +3,30 @@
     <section class="hero is-success is-fullheight is-marginless is-paddingless">
       <div class="hero-body is-marginless is-paddingless">
         <div class="container">
-          <div class="column is-8 is-offset-2 box">
-            <div class="field">
-              <label class="">1. </label>
-              <input class="w-60pct" step="1" min="0" max="100" value="50" v-model="input" type="range"> {{input}}
+          <div class="column is-8 is-offset-2 box" v-if="score.G0">
+            <div v-for="(a, index) in score.G0.part1.referee1" :key="'part1' + index">
+               <div class="field">
+                 <!-- {{score.G0}} -->
+                <label class="">{{index + 1}} </label>
+                <input class="w-60pct" step="1" min="0" max="100" :value="a" type="range" @input="updateDataScore(index, $event.target.value)"> {{a}}
+              </div>
             </div>
-            <!-- <div class="field is-grouped">
-              <div class="control">
-                <button class="button is-link">Submit</button>
+            <hr>
+            <div v-for="(a, index) in score.G0.part2.referee1" :key="'part2' + index">
+               <div class="field">
+                 <!-- {{score.G0}} -->
+                <label class="">{{index + 1}} </label>
+                <input class="w-60pct" step="1" min="0" max="100" :value="a" type="range" @input="updateDataScore(index, $event.target.value)"> {{a}}
               </div>
-              <div class="control">
-                <button class="button is-text">Cancel</button>
+            </div>
+            <hr>
+            <div v-for="(a, index) in score.G0.part3.referee1" :key="'part3' + index">
+               <div class="field">
+                 <!-- {{score.G0}} -->
+                <label class="">{{index + 1}} </label>
+                <input class="w-60pct" step="1" min="0" max="100" :value="a" type="range" @input="updateDataScore(index, $event.target.value)"> {{a}}
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -24,7 +35,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'CreateCompetitor',
   data () {
@@ -33,15 +44,22 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      score: 'score'
+    ...mapState({
+      score: state => state.score
     })
   },
   methods: {
     ...mapActions({
       bindscoreRef: 'bindscoreRef',
-      unbindscoreRef: 'unbindscoreRef'
-    })
+      unbindscoreRef: 'unbindscoreRef',
+      updateScore: 'updateScore'
+    }),
+    updateDataScore (index, score) {
+      this.updateScore({
+        index,
+        score
+      })
+    }
   },
   created () {
     this.bindscoreRef()
