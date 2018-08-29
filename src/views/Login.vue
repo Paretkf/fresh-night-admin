@@ -11,22 +11,20 @@
               <figure class="avatar">
                 <img src="https://media.giphy.com/media/xLI6yofqY6hzO/giphy.gif" width="128" height="128">
               </figure>
-              <form>
-                <div class="field">
-                  <div class="control">
-                      <input class="input" type="email" placeholder="Your Username" autofocus="">
-                  </div>
+              <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Your Username"  v-model="username">
                 </div>
+              </div>
 
-                <div class="field">
-                  <div class="control">
-                    <input class="input" type="password" placeholder="Your Password">
-                  </div>
+              <div class="field">
+                <div class="control">
+                  <input class="input" type="password" placeholder="Your Password" v-model="password">
                 </div>
-                <div class="field">
-                </div>
-                <button class="button is-block is-info is-fullwidth">Login</button>
-              </form>
+              </div>
+              <div class="field">
+              </div>
+              <button class="button is-block is-info is-fullwidth" @click="login()">Login</button>
             </div>
           </div>
         </div>
@@ -36,12 +34,43 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Login',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      username: '',
+      password: '',
+      user: []
     }
+  },
+  methods: {
+    ...mapActions({
+      setDataLogin: 'login',
+      getUser: 'getUser',
+      setUser: 'setUser'
+    }),
+    async login () {
+      let temp = await this.user.findIndex(u => u.id === this.username || u.password + '' === this.password)
+      if (temp !== -1) {
+        this.setUser({
+          name: this.user[temp].name,
+          id: this.user[temp].id
+        })
+        this.$router.push({name: 'UpdateScore'})
+      } else {
+        alert('Login Fail')
+      }
+    }
+  },
+  computed: {
+    ...mapState({
+      // user: state => state.user
+    })
+  },
+  async created () {
+    this.user = await this.getUser()
   }
 }
 </script>

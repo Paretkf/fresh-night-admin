@@ -10,32 +10,151 @@ const config = {
   storageBucket: 'fitm-freshy-night.appspot.com',
   messagingSenderId: '79766181497'
 }
-let app = firebase.initializeApp(config)
+const app = firebase.initializeApp(config)
 
-let db = app.database()
-let scoreRef = db.ref('score')
-
+const db = app.database()
+const scoreRef = db.ref('score')
+const userRef = db.ref('referees')
 Vue.use(Vuex)
 
 const state = {
-  score: {}
+  score: {},
+  user: {
+    name: '',
+    id: ''
+  }
 }
 
 const actions = {
   updateScore ({commit}, payload) {
-    scoreRef.child(`/G0/part1/referee1/${payload.index}`).set(payload.score)
-    // commit('UPDATE_SCORE', payload)
+    scoreRef.child(`/G1/part1/referee1/${payload.index}/score`).set(payload.score)
   },
   bindscoreRef: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('score', scoreRef)
   }),
   unbindscoreRef: firebaseAction(({ unbindFirebaseRef }) => {
     unbindFirebaseRef('score')
-  })
+  }),
+  async getUser ({commit}) {
+    let results = []
+    await userRef.on('child_added', async (snapshot) => {
+      await results.push(snapshot.val())
+    })
+    console.log(results)
+    return results
+  },
+  setUser ({commit}, payload) {
+    commit('SET_USER', payload)
+  },
+  addData ({commit}, name) {
+    const q1 = [
+      {
+        max: 35,
+        name: 'ความคิดสร้างสรรค์ในการแสดง',
+        score: 0
+      },
+      {
+        max: 20,
+        name: 'สีหน้าและความมั่นใจ',
+        score: 0
+      },
+      {
+        max: 15,
+        name: 'สร้างความประทับใจให้ผู้รับชม',
+        score: 0
+      },
+      {
+        max: 15,
+        name: 'การแสดงที่ต่อเนื่อง',
+        score: 0
+      },
+      {
+        max: 15,
+        name: 'การแสดงออกอย่างเป็นธรรมชาติ',
+        score: 0
+      }
+    ]
+    const q2 = [
+      {
+        max: 20,
+        name: 'การเดิน',
+        score: 0
+      },
+      {
+        max: 20,
+        name: 'การยืน',
+        score: 0
+      },
+      {
+        max: 10,
+        name: 'ความโดดเด่น',
+        score: 0
+      },
+      {
+        max: 30,
+        name: 'การพูด',
+        score: 0
+      },
+      {
+        max: 10,
+        name: 'สีหน้า',
+        score: 0
+      },
+      {
+        max: 10,
+        name: 'ท่าทางการแสดงออก',
+        score: 0
+      }
+    ]
+    const q3 = [
+      {
+        max: 35,
+        name: 'ตอบตรงประเด็น',
+        score: 0
+      },
+      {
+        max: 35,
+        name: 'ตอบแบบมีไหวพริบแสดงถึงทัศนะคติที่ดี',
+        score: 0
+      },
+      {
+        max: 20,
+        name: 'ตอบอย่างชัดเจนมีความมั่นใจ',
+        score: 0
+      },
+      {
+        max: 10,
+        name: 'ลักษณะท่าทางในการตอบ',
+        score: 0
+      }
+    ]
+    let data = {
+      part1: {
+        referee1: q1,
+        referee2: q1,
+        referee3: q1
+      },
+      part2: {
+        referee1: q2,
+        referee2: q2,
+        referee3: q2
+      },
+      part3: {
+        referee1: q3,
+        referee2: q3,
+        referee3: q3
+      }
+    }
+    scoreRef.child(`${name}/`).set(data)
+  }
 }
 
 const mutations = {
-  ...firebaseMutations
+  ...firebaseMutations,
+  SET_USER (state, payload) {
+    state.user.name = payload.name
+    state.user.id = payload.id
+  }
   // UPDATE_SCORE (state, payload) {
   //   state.score.G0.part1.referee1[payload.index] = payload.score
   // }

@@ -3,30 +3,14 @@
     <section class="hero is-success is-fullheight is-marginless is-paddingless">
       <div class="hero-body is-marginless is-paddingless">
         <div class="container">
-          <div class="column is-8 is-offset-2 box" v-if="score.G0">
-            <div v-for="(a, index) in score.G0.part1.referee1" :key="'part1' + index">
+          <div class="column is-8 is-offset-2 box" v-if="score.G1">
+            <div v-for="(a, index) in score.G1.part1.referee1" :key="'part1' + index">
                <div class="field">
-                 <!-- {{score.G0}} -->
                 <label class="">{{index + 1}} </label>
-                <input class="w-60pct" step="1" min="0" max="100" :value="a" type="range" @input="updateDataScore(index, $event.target.value)"> {{a}}
+                {{a.name}}<input class="w-60pct" step="1" min="0" :max="a.max" :value="a.score" type="range" @input="updateDataScore(index, $event.target.value)"> {{a.score}}
               </div>
             </div>
             <hr>
-            <div v-for="(a, index) in score.G0.part2.referee1" :key="'part2' + index">
-               <div class="field">
-                 <!-- {{score.G0}} -->
-                <label class="">{{index + 1}} </label>
-                <input class="w-60pct" step="1" min="0" max="100" :value="a" type="range" @input="updateDataScore(index, $event.target.value)"> {{a}}
-              </div>
-            </div>
-            <hr>
-            <div v-for="(a, index) in score.G0.part3.referee1" :key="'part3' + index">
-               <div class="field">
-                 <!-- {{score.G0}} -->
-                <label class="">{{index + 1}} </label>
-                <input class="w-60pct" step="1" min="0" max="100" :value="a" type="range" @input="updateDataScore(index, $event.target.value)"> {{a}}
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -37,7 +21,7 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 export default {
-  name: 'CreateCompetitor',
+  name: 'UpdateScore',
   data () {
     return {
       input: 0

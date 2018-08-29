@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/views/Login'
-import CreateCompetitor from '@/views/admin/CreateCompetitor'
+import UpdateScore from '@/views/UpdateScore'
+import CreateData from '@/views/admin/CreateData'
 
 Vue.use(Router)
 
@@ -13,9 +14,14 @@ export default new Router({
       component: Login
     },
     {
-      path: '/create-competitor',
-      name: 'CreateCompetitor',
-      component: CreateCompetitor
+      path: '/update-score',
+      name: 'UpdateScore',
+      component: UpdateScore
+    },
+    {
+      path: '/create-data',
+      name: 'CreateData',
+      component: CreateData
     }
   ]
 })
