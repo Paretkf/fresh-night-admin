@@ -59,7 +59,7 @@ export default {
   },
   created () {
     if (this.user.name === '') {
-      // this.$router.push({name: 'Login'})
+      this.$router.push({name: 'Login'})
     }
   }
 }

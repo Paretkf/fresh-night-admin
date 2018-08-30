@@ -165,6 +165,7 @@ export default {
   created () {
     this.bindscoreRef()
     if (this.user.name === '') {
+      this.$router.push({name: 'Login'})
     }
   },
   destroyed () {

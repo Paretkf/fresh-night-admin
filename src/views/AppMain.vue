@@ -11,9 +11,20 @@
 
 <script>
 import NavBar from './NavBar'
+import { mapActions } from 'vuex'
 export default {
   components: {
     NavBar
+  },
+  methods: {
+    ...mapActions({
+      setSessionUser: 'setSessionUser'
+    })
+  },
+  created () {
+    if (sessionStorage.getItem('name') && sessionStorage.getItem('id')) {
+      this.setSessionUser()
+    }
   }
 }
 </script>

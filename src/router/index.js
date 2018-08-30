@@ -21,6 +21,11 @@ export default new Router({
       component: DashBoard
     },
     {
+      path: '/create-data',
+      name: 'CreateData',
+      component: CreateData
+    },
+    {
       path: '/app',
       name: 'Main',
       component: Main,
@@ -29,11 +34,6 @@ export default new Router({
           path: 'update-score',
           name: 'UpdateScore',
           component: UpdateScore
-        },
-        {
-          path: 'create-data',
-          name: 'CreateData',
-          component: CreateData
         }
       ]
     }

@@ -53,6 +53,12 @@ const actions = {
   },
   setUser ({commit}, payload) {
     commit('SET_USER', payload)
+    sessionStorage.setItem('name', payload.name)
+    sessionStorage.setItem('id', payload.id)
+  },
+  setSessionUser ({state}) {
+    state.user.name = sessionStorage.getItem('name')
+    state.user.id = sessionStorage.getItem('id')
   },
   addData ({commit}, payload) {
     const q1 = [
