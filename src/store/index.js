@@ -22,12 +22,20 @@ const state = {
   user: {
     name: '',
     id: ''
-  }
+  },
+  selectScore: [
+    'B1',
+    'G1',
+    'TA'
+  ]
 }
 
 const actions = {
+  setSelectScore ({commit}, payload) {
+    commit('SET_SELECT_SCORE', payload)
+  },
   updateScore ({commit}, payload) {
-    scoreRef.child(`/G1/part1/referee1/${payload.index}/score`).set(payload.score)
+    scoreRef.child(`/${payload.index}/score`).set(payload.score)
   },
   bindscoreRef: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('score', scoreRef)
@@ -46,7 +54,7 @@ const actions = {
   setUser ({commit}, payload) {
     commit('SET_USER', payload)
   },
-  addData ({commit}, name) {
+  addData ({commit}, payload) {
     const q1 = [
       {
         max: 35,
@@ -145,7 +153,7 @@ const actions = {
         referee3: q3
       }
     }
-    scoreRef.child(`${name}/`).set(data)
+    scoreRef.child(`/${payload.sex}/${payload.name}/`).set(data)
   }
 }
 
@@ -154,6 +162,9 @@ const mutations = {
   SET_USER (state, payload) {
     state.user.name = payload.name
     state.user.id = payload.id
+  },
+  SET_SELECT_SCORE (state, payload) {
+    state.selectScore = payload
   }
   // UPDATE_SCORE (state, payload) {
   //   state.score.G0.part1.referee1[payload.index] = payload.score

@@ -52,15 +52,19 @@ export default {
       setUser: 'setUser'
     }),
     async login () {
-      let temp = await this.user.findIndex(u => u.id === this.username || u.password + '' === this.password)
+      let temp = await this.user.findIndex(u => u.id === this.username && u.password + '' === this.password + '')
       if (temp !== -1) {
+        console.log(temp)
         this.setUser({
           name: this.user[temp].name,
           id: this.user[temp].id
         })
         this.$router.push({name: 'UpdateScore'})
       } else {
-        alert('Login Fail')
+        this.$toast.open({
+          message: 'User name หรือ Password ลองใหม่!',
+          type: 'is-danger'
+        })
       }
     }
   },

@@ -4,8 +4,19 @@
       <div class="hero-body is-marginless is-paddingless">
         <div class="container">
           <div class="column is-4 is-offset-4 box">
+            <b-field label="Sex">
+              <b-radio v-model="sex"
+                native-value="BOY">
+                BOY
+              </b-radio>
+              <b-radio v-model="sex"
+                native-value="GIRL">
+                GIRL
+              </b-radio>
+            </b-field>
+                <hr>
             <div>
-              <b-field label="Data Name">
+               <b-field label="Name">
                 <b-input v-model="name"></b-input>
                 <div class="button" @click="add">เพิ่ม</div>
               </b-field>
@@ -24,12 +35,13 @@ export default {
   data () {
     return {
       input: 0,
-      name: ''
+      name: '',
+      sex: 'BOY'
     }
   },
   computed: {
     ...mapState({
-      score: state => state.score
+      user: state => state.user
     })
   },
   methods: {
@@ -38,8 +50,16 @@ export default {
     }),
     add () {
       if (this.name !== '') {
-        this.addData(this.name)
+        this.addData({
+          name: this.name,
+          sex: this.sex
+        })
       }
+    }
+  },
+  created () {
+    if (this.user.name === '') {
+      // this.$router.push({name: 'Login'})
     }
   }
 }
