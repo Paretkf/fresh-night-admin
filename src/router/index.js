@@ -4,6 +4,7 @@ import Login from '@/views/Login'
 import UpdateScore from '@/views/UpdateScore'
 import CreateData from '@/views/admin/CreateData'
 import DashBoard from '@/views/admin/DashBoard'
+import DashBoardAllDetail from '@/views/admin/DashBoardAllDetail'
 import Main from '@/views/AppMain'
 
 Vue.use(Router)
@@ -19,6 +20,11 @@ export default new Router({
       path: '/dash-board',
       name: 'DashBoard',
       component: DashBoard
+    },
+    {
+      path: '/dash-board-all-detail',
+      name: 'DashBoardAllDetail',
+      component: DashBoardAllDetail
     },
     {
       path: '/create-data',

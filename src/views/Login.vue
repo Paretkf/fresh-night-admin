@@ -13,13 +13,13 @@
               </figure>
               <div class="field">
                 <div class="control">
-                    <input class="input" type="text" placeholder="Your Username"  v-model="username">
+                    <input class="input" type="text" placeholder="Your Username"  v-model="username" v-on:keydown.enter="login()">
                 </div>
               </div>
 
               <div class="field">
                 <div class="control">
-                  <input class="input" type="password" placeholder="Your Password" v-model="password">
+                  <input class="input" type="password" placeholder="Your Password" v-model="password" v-on:keydown.enter="login()">
                 </div>
               </div>
               <div class="field">
@@ -59,7 +59,11 @@ export default {
           name: this.user[temp].name,
           id: this.user[temp].id
         })
-        this.$router.push({name: 'UpdateScore'})
+        if (this.user[temp].name === 'cofen') {
+          this.$router.push({name: 'DashBoard'})
+        } else {
+          this.$router.push({name: 'UpdateScore'})
+        }
       } else {
         this.$toast.open({
           message: 'User name หรือ Password ลองใหม่!',
