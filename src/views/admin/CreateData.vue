@@ -68,7 +68,7 @@ export default {
 <style scoped>
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/39900569_945240225662683_6306849167083831296_n.png');
+  background:url('/static/img/39900569_945240225662683_6306849167083831296_n.jpg');
   background-size: cover;
 }
 .hero .nav, .hero.is-success .nav {

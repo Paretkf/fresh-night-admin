@@ -2,9 +2,9 @@
   <div>
     <section class="hero is-success is-fullheight is-marginless is-paddingless">
       <div class="container">
-        <span class="f-s-24px f-w-bold">
+        <span class="f-s-24px f-w-bold" style="color: #000">
           Referee : <u>{{user.name}}</u>
-          <a title="logout" @click="logout()"> x </a>
+          <a title="logout" class="logout" @click="logout()"> ออกจากระบบ </a>
           <!-- <svg-filler class="mg-l-5px cs-pointer" path="/static/svg/sign-out-alt-solid.svg" :fill="'#fff'" width="20px" height="20px"/> -->
         </span>
         <div class="columns">
@@ -152,7 +152,7 @@ export default {
 }
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/39900569_945240225662683_6306849167083831296_n.png');
+  background:url('/static/img/39900569_945240225662683_6306849167083831296_n.jpg');
   background-size: cover;
   max-height: calc(100vh - 30px);
 }
@@ -177,7 +177,7 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
-  background: #7957d5;
+  background: #43c2f8;;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
@@ -192,13 +192,13 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -14px;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #7957d5;
+  background: #43c2f8;;
 }
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
-  background: #7957d5;
+  background: #43c2f8;;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
@@ -219,12 +219,12 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #7957d5;
+  background: #43c2f8;;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
 }
 input[type=range]::-ms-fill-upper {
-  background: #7957d5;
+  background: #43c2f8;;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
 }
@@ -238,9 +238,9 @@ input[type=range]::-ms-thumb {
   height: 8.4px;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #7957d5;
+  background: #43c2f8;;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #7957d5;
+  background: #43c2f8;;
 }
 </style>
