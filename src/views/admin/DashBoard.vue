@@ -6,7 +6,9 @@
           <div class="column is-12 card">
             <VuePerfectScrollbar class="list-item">
               <div class="t-al-right pd-hrzt-20px">
-                 <a class="f-s-20px f-w-bold" @click="$router.push({name: 'DashBoardAllDetail'})"> รายละเอียด </a>
+                <span class="f-s-20px f-w-bold">User: {{user.name}} | </span>
+                <a class="f-s-20px f-w-bold" @click="$router.push({name: 'DashBoardAllDetail'})"> รายละเอียดคะแนน </a>
+                <a class="f-s-20px f-w-bold logout" @click="logout()">ออกจากระบบ</a>
               </div>
               <br>
               <div class="columns">
@@ -190,8 +192,16 @@ export default {
   methods: {
     ...mapActions({
       bindscoreRef: 'bindscoreRef',
-      unbindscoreRef: 'unbindscoreRef'
+      unbindscoreRef: 'unbindscoreRef',
+      setUser: 'setUser'
     }),
+    logout () {
+      this.setUser({
+        name: '',
+        id: ''
+      })
+      this.$router.push({name: 'Login'})
+    },
     totalScore (data, part) {
       let result1 = data[part].referee1.reduce((sum, d) => sum + parseInt(d.score), 0)
       let result2 = data[part].referee2.reduce((sum, d) => sum + parseInt(d.score), 0)
@@ -256,7 +266,7 @@ export default {
   color: red;
 }
 .logout:hover {
-  color: #fff;
+  color: #000;
 }
 .list-item {
   height: calc(100vh - 125px);

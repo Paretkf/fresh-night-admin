@@ -5,9 +5,11 @@
         <div class="columns mg-t-50px mg-bt-10px">
           <div class="column is-12 card">
             <VuePerfectScrollbar class="list-item">
-            <div class="t-al-left pd-hrzt-20px">
+            <div class="t-al-right pd-hrzt-20px">
+                <span class="f-s-20px f-w-bold">User: {{user.name}} | </span>
                 <a class="f-s-20px f-w-bold" @click="$router.push({name: 'DashBoard'})"> กลับ </a>
-            </div>
+                <a class="f-s-20px f-w-bold logout" @click="logout()">ออกจากระบบ</a>
+              </div>
             <div class="columns is-paddingless is-marginless" v-if="score !== []">
               <div class="column">
                 <b-field label="เพศ" v-if="score">
@@ -112,6 +114,13 @@ export default {
       this.part = ''
       this.referee = ''
       this.id = ''
+    },
+    logout () {
+      this.setUser({
+        name: '',
+        id: ''
+      })
+      this.$router.push({name: 'Login'})
     }
   },
   created () {
@@ -135,7 +144,7 @@ export default {
   color: red;
 }
 .logout:hover {
-  color: #fff;
+  color: #000;
 }
 .hero.is-success {
   background: #F2F6FA;
