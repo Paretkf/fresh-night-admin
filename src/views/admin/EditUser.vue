@@ -4,7 +4,29 @@
       <div class="hero-body is-marginless is-paddingless">
         <div class="container">
           <div class="column is-6 is-offset-3 box">
-            <span>แก้ไข User</span>
+            <span class="f-s-30px f-w-bold">User</span>
+            <table class="table is-bordered">
+              <tr>
+                <th>User Name</th> <th>Password</th> <th>Name</th> <th>Edit</th>
+              </tr>
+              <tr v-for="(user, index) in userDB" :key="index">
+                <td>
+                  {{user.id}}
+                </td>
+                <td>
+                  {{user.password}}
+                </td>
+                <!-- <td>
+                  {{user.name}}
+                </td> -->
+                <td>
+                  <input type="text" v-model="user.name" class="input is-sucess is-small">
+                </td>
+                 <td>
+                  <div class="button is-success is-small" @click="editUser(user, index)">บันทึก</div>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
@@ -22,26 +44,39 @@ export default {
   },
   computed: {
     ...mapState({
-      user: state => state.user
+      user: state => state.user,
+      userDB: state => state.userDB
     })
   },
   methods: {
     ...mapActions({
-      addData: 'addData'
+      binduserRef: 'binduserRef',
+      unbinduserRef: 'unbinduserRef',
+      editUserData: 'editUserData'
     }),
-    add () {
-      if (this.name !== '') {
-        this.addData({
-          name: this.name,
-          sex: this.sex
+    editUser (user) {
+      if (user.name === '') {
+        this.$toast.open({
+          message: `ไม่เอาชื่อที่เป็น '' สิ่ :(`,
+          type: 'is-danger'
         })
+        return
       }
+      this.editUserData(user)
+      this.$toast.open({
+        message: 'บันทึกเสร็จแล้ว! มองไม่ทันล่ะสิ่ อิอิ :)',
+        type: 'is-success'
+      })
     }
   },
   created () {
+    this.binduserRef()
     if (this.user.name === '') {
       // this.$router.push({name: 'Login'})
     }
+  },
+  destroyed () {
+    this.unbinduserRef()
   }
 }
 </script>

@@ -58,10 +58,10 @@ export default {
           name: this.user[temp].name,
           id: this.user[temp].id
         })
-        if (this.user[temp].name === 'cofen') {
+        if (this.user[temp].roles === 'admin') {
           this.$router.push({name: 'DashBoard'})
-        } else if (this.user[temp].name === 'RCT') {
-          this.$router.push({name: 'CreateData'})
+        } else if (this.user[temp].roles === 'super-admin') {
+          this.$router.push({name: 'EditUser'})
         } else {
           this.$router.push({name: 'UpdateScore'})
         }

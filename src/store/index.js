@@ -23,7 +23,8 @@ const state = {
   userDB: [],
   user: {
     name: '',
-    id: ''
+    id: '',
+    roles: ''
   },
   selectScore: [
     'B1',
@@ -51,6 +52,14 @@ const actions = {
   unbinduserRef: firebaseAction(({ unbindFirebaseRef }) => {
     unbindFirebaseRef('userDB')
   }),
+  editUserData ({commit}, payload) {
+    userRef.child(payload['.key']).set({
+      id: payload.id,
+      name: payload.name,
+      password: payload.password,
+      roles: payload.roles
+    })
+  },
   async getUser ({commit}) {
     let results = []
     await userRef.on('child_added', async (snapshot) => {
