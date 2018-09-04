@@ -20,6 +20,7 @@ Vue.use(Vuex)
 
 const state = {
   score: {},
+  userDB: [],
   user: {
     name: '',
     id: ''
@@ -43,6 +44,12 @@ const actions = {
   }),
   unbindscoreRef: firebaseAction(({ unbindFirebaseRef }) => {
     unbindFirebaseRef('score')
+  }),
+  binduserRef: firebaseAction(({ bindFirebaseRef }) => {
+    bindFirebaseRef('userDB', userRef)
+  }),
+  unbinduserRef: firebaseAction(({ unbindFirebaseRef }) => {
+    unbindFirebaseRef('userDB')
   }),
   async getUser ({commit}) {
     let results = []
@@ -172,9 +179,6 @@ const mutations = {
   SET_SELECT_SCORE (state, payload) {
     state.selectScore = payload
   }
-  // UPDATE_SCORE (state, payload) {
-  //   state.score.G0.part1.referee1[payload.index] = payload.score
-  // }
 }
 
 const getters = {

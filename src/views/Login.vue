@@ -1,12 +1,12 @@
 <template>
   <div>
-    <!-- <img src="/static/img/39900569_945240225662683_6306849167083831296_n.jpg" alt=""> -->
+    <!-- <img src="/static/img/40797664_1871063649626396_6779287568119758848_n.png" alt=""> -->
     <section class="hero is-success is-fullheight is-marginless is-paddingless">
       <div class="hero-body is-marginless is-paddingless">
         <div class="container has-text-centered">
           <div class="column is-4 is-offset-4">
-            <h3 class="title has-text-grey">Login</h3>
-            <p class="subtitle has-text-grey">Please login to proceed.</p>
+            <h3 class="title has-text-grey"></h3>
+            <p class="subtitle has-text-grey"></p>
             <div class="box">
               <figure class="avatar">
                 <img src="https://media.giphy.com/media/xLI6yofqY6hzO/giphy.gif" width="128" height="128">
@@ -60,6 +60,8 @@ export default {
         })
         if (this.user[temp].name === 'cofen') {
           this.$router.push({name: 'DashBoard'})
+        } else if (this.user[temp].name === 'RCT') {
+          this.$router.push({name: 'CreateData'})
         } else {
           this.$router.push({name: 'UpdateScore'})
         }
@@ -86,8 +88,9 @@ export default {
 <style scoped>
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/39900569_945240225662683_6306849167083831296_n.jpg');
+  background:url('/static/img/40797664_1871063649626396_6779287568119758848_n.png');
   background-size: cover;
+  background-position: center;
 }
 .hero .nav, .hero.is-success .nav {
   -webkit-box-shadow: none;
@@ -96,7 +99,7 @@ export default {
 .box {
   /* opacity: 0.8; */
   background-color: rgb(255, 255, 255, 0.8);
-  margin-top: 5rem;
+  margin-top: 10rem;
 }
 .avatar {
   margin-top: -70px;

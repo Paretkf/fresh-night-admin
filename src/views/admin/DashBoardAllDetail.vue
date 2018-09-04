@@ -149,8 +149,9 @@ export default {
 }
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/39900569_945240225662683_6306849167083831296_n.jpg');
+  background:url('/static/img/40797664_1871063649626396_6779287568119758848_n.png');
   background-size: cover;
+  background-position: center;
   max-height: calc(100vh - 30px);
 }
 .hero .nav, .hero.is-success .nav {

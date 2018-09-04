@@ -3,24 +3,8 @@
     <section class="hero is-success is-fullheight is-marginless is-paddingless">
       <div class="hero-body is-marginless is-paddingless">
         <div class="container">
-          <div class="column is-4 is-offset-4 box">
-            <b-field label="Sex">
-              <b-radio v-model="sex"
-                native-value="BOY">
-                BOY
-              </b-radio>
-              <b-radio v-model="sex"
-                native-value="GIRL">
-                GIRL
-              </b-radio>
-            </b-field>
-                <hr>
-            <div>
-               <b-field label="Name">
-                <b-input v-model="name"></b-input>
-                <div class="button" @click="add">เพิ่ม</div>
-              </b-field>
-            </div>
+          <div class="column is-6 is-offset-3 box">
+            <span>แก้ไข User</span>
           </div>
         </div>
       </div>
@@ -31,12 +15,9 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 export default {
-  name: 'createData',
+  name: 'EditUser',
   data () {
     return {
-      input: 0,
-      name: '',
-      sex: 'BOY'
     }
   },
   computed: {
@@ -59,7 +40,7 @@ export default {
   },
   created () {
     if (this.user.name === '') {
-      this.$router.push({name: 'Login'})
+      // this.$router.push({name: 'Login'})
     }
   }
 }
