@@ -54,7 +54,6 @@ export default {
     async login () {
       let temp = await this.user.findIndex(u => u.id === this.username && u.password + '' === this.password + '')
       if (temp !== -1) {
-        console.log(temp)
         this.setUser({
           name: this.user[temp].name,
           id: this.user[temp].id

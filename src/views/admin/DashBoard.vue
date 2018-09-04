@@ -2,16 +2,16 @@
   <div>
     <section class="hero is-success is-fullheight is-marginless is-paddingless">
       <div class="container">
-        <div class="columns mg-t-50px mg-bt-10px">
+        <div class="columns is-marginless is-paddingless mg-t-50px mg-bt-10px">
           <div class="column is-12 card">
-            <VuePerfectScrollbar class="list-item">
+            <div class="list-item">
               <div class="t-al-right pd-hrzt-20px">
                 <span class="f-s-20px f-w-bold">User: {{user.name}} | </span>
                 <a class="f-s-20px f-w-bold" @click="$router.push({name: 'DashBoardAllDetail'})"> รายละเอียดคะแนน </a>
                 <a class="f-s-20px f-w-bold logout" @click="logout()">ออกจากระบบ</a>
               </div>
               <br>
-              <div class="columns">
+              <div class="columns is-marginless is-paddingless">
                 <div class="column is-3 card">
                   <span class="f-s-20px f-w-bold"> รอบที่ 1 ชาย </span>
                   <table class="table mg-auto is-bordered">
@@ -89,7 +89,7 @@
                   </table>
                 </div>
               </div>
-              <div class="columns">
+              <div class="columns is-marginless is-paddingless">
                 <div class="column is-3 card">
                   <span class="f-s-20px f-w-bold"> รอบที่ 3 ชาย </span>
                   <table class="table mg-auto is-bordered">
@@ -167,7 +167,7 @@
                   </table>
                 </div>
               </div>
-            </VuePerfectScrollbar>
+            </div>
           </div>
         </div>
       </div>
@@ -260,16 +260,14 @@ export default {
 <style scoped>
 .list-item {
   width: 100%;
-  height: calc(100vh - 35px);
+  height: calc(100vh - 125px);
+  overflow: auto;
 }
 .logout {
   color: red;
 }
 .logout:hover {
   color: #000;
-}
-.list-item {
-  height: calc(100vh - 125px);
 }
 .hero.is-success {
   background: #F2F6FA;

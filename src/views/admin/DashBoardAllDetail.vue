@@ -4,7 +4,7 @@
       <div class="container">
         <div class="columns mg-t-50px mg-bt-10px">
           <div class="column is-12 card">
-            <VuePerfectScrollbar class="list-item">
+            <div class="list-item">
             <div class="t-al-right pd-hrzt-20px">
                 <span class="f-s-20px f-w-bold">User: {{user.name}} | </span>
                 <a class="f-s-20px f-w-bold" @click="$router.push({name: 'DashBoard'})"> กลับ </a>
@@ -79,7 +79,7 @@
                   </td>
                 </tr>
               </table>
-            </VuePerfectScrollbar>
+            </div>
           </div>
         </div>
       </div>
@@ -139,6 +139,7 @@ export default {
 .list-item {
   width: 100%;
   height: calc(100vh - 200px);
+  overflow: auto;
 }
 .logout {
   color: red;

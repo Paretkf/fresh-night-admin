@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { firebaseMutations, firebaseAction } from 'vuexfire'
-import firebase from 'firebase'
+const firebase = require('firebase/app')
+require('firebase/database')
 const config = {
   apiKey: 'AIzaSyBc7iBXZwbRemlDM9UUR8fMCoPp8p_Dqmc',
   authDomain: 'fitm-freshy-night.firebaseapp.com',
@@ -48,7 +49,6 @@ const actions = {
     await userRef.on('child_added', async (snapshot) => {
       await results.push(snapshot.val())
     })
-    console.log(results)
     return results
   },
   setUser ({commit}, payload) {

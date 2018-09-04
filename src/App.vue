@@ -11,6 +11,9 @@ export default {
 </script>
 
 <style>
+* {
+  user-select: none;
+}
 a {
   color: #43c2f8;
 }
