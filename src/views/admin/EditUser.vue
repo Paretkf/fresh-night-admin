@@ -5,6 +5,7 @@
         <div class="container">
           <div class="column is-6 is-offset-3 box">
             <span class="f-s-30px f-w-bold">User</span>
+            <a class="f-s-20px f-w-bold logout" @click="logout()">ออกจากระบบ</a>
             <table class="table is-bordered">
               <tr>
                 <th>User Name</th> <th>Password</th> <th>Name</th> <th>Edit</th>
@@ -52,7 +53,8 @@ export default {
     ...mapActions({
       binduserRef: 'binduserRef',
       unbinduserRef: 'unbinduserRef',
-      editUserData: 'editUserData'
+      editUserData: 'editUserData',
+      setUser: 'setUser'
     }),
     editUser (user) {
       if (user.name === '') {
@@ -67,6 +69,13 @@ export default {
         message: 'บันทึกเสร็จแล้ว! มองไม่ทันล่ะสิ่ อิอิ :)',
         type: 'is-success'
       })
+    },
+    logout () {
+      this.setUser({
+        name: '',
+        id: ''
+      })
+      this.$router.push({name: 'Login'})
     }
   },
   created () {
@@ -82,6 +91,12 @@ export default {
 </script>
 
 <style scoped>
+.logout {
+  color: red;
+}
+.logout:hover {
+  color: #000;
+}
 .hero.is-success {
   background: #F2F6FA;
   background:url('/static/img/40797664_1871063649626396_6779287568119758848_n.png');
