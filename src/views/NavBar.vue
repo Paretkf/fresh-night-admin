@@ -1,25 +1,25 @@
 <template>
   <div class="navbarx pd-10px">
-    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B1', 'G1', 'TA'])" title="B1 • G1">
-      TA
+    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B1', 'G1', 'INE'])" title="B1 • G1">
+      INE
     </div>
-     <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B2', 'G2', 'IM'])" title="B2 • G2">
-      IM
-    </div>
-    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B3', 'G3', 'TAM'])" title="B3 • G3">
-      TAM
-    </div>
-    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B4', 'G4', 'CA'])" title="B4 • G4">
-      CA
-    </div>
-    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B5', 'G5', 'ITI'])" title="B5 • G5">
+     <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B2', 'G2', 'ITI'])" title="B2 • G2">
       ITI
     </div>
-    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B6', 'G6', 'IMT'])" title="B6 • G6">
+    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B3', 'G3', 'AI'])" title="B3 • G3">
+      AI
+    </div>
+    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B4', 'G4', 'IM'])" title="B4 • G4">
+      IM
+    </div>
+    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B5', 'G5', 'IMT'])" title="B5 • G5">
       IMT
     </div>
-    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B7', 'G7', 'AI'])" title="B7 • G7">
-      AI
+    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B6', 'G6', 'TA'])" title="B6 • G6">
+      TA
+    </div>
+    <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B7', 'G7', 'CA'])" title="B7 • G7">
+      CA
     </div>
     <div class="w-40px h-40px item cs-pointer" @click="setSelectScore(['B8', 'G8', 'IT'])" title="B8 • G8">
       IT

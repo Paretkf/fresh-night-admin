@@ -68,7 +68,7 @@ export default {
 <style scoped>
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/40797664_1871063649626396_6779287568119758848_n.png');
+  background:url('/static/img/BG-Clock.jpg');
   background-size: cover;
   background-position: center;
 }

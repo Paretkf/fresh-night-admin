@@ -51,84 +51,6 @@
                   </table>
                 </div>
                 <div class="column is-3 card">
-                  <span class="f-s-20px f-w-bold"> รอบที่ 2 ชาย </span>
-                  <table class="table mg-auto is-bordered">
-                    <tr>
-                      <th>No.</th><th>คะแนน</th><th>เต็ม</th>
-                    </tr>
-                    <tr v-for="(d, index) in score.BOY" :key="'pb2' + index">
-                      <td>
-                        {{index}}
-                      </td>
-                      <td class="t-al-right">
-                        {{totalScore(d, 'part2')}}
-                      </td>
-                      <td>
-                        {{totalMaxScore(d, 'part2')}}
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="column is-3 card">
-                  <span class="f-s-20px f-w-bold"> รอบที่ 2 หญิง </span>
-                  <table class="table mg-auto is-bordered">
-                    <tr>
-                      <th>No.</th><th>คะแนน</th><th>เต็ม</th>
-                    </tr>
-                    <tr v-for="(d, index) in score.GIRL" :key="'pg2' + index">
-                      <td>
-                        {{index}}
-                      </td>
-                      <td class="t-al-right">
-                        {{totalScore(d, 'part2')}}
-                      </td>
-                      <td>
-                        {{totalMaxScore(d, 'part2')}}
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-              <div class="columns is-marginless is-paddingless">
-                <div class="column is-3 card">
-                  <span class="f-s-20px f-w-bold"> รอบที่ 3 ชาย </span>
-                  <table class="table mg-auto is-bordered">
-                    <tr>
-                      <th>No.</th><th>คะแนน</th><th>เต็ม</th>
-                    </tr>
-                    <tr v-for="(d, index) in score.BOY" :key="'pb3' + index">
-                      <td>
-                        {{index}}
-                      </td>
-                      <td class="t-al-right">
-                        {{totalScore(d, 'part3')}}
-                      </td>
-                      <td>
-                        {{totalMaxScore(d, 'part3')}}
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="column is-3 card">
-                  <span class="f-s-20px f-w-bold"> รอบที่ 3 หญิง </span>
-                  <table class="table mg-auto is-bordered">
-                    <tr>
-                      <th>No.</th><th>คะแนน</th><th>เต็ม</th>
-                    </tr>
-                    <tr v-for="(d, index) in score.GIRL" :key="'pg3' + index">
-                      <td>
-                        {{index}}
-                      </td>
-                      <td class="t-al-right">
-                        {{totalScore(d, 'part3')}}
-                      </td>
-                      <td>
-                        {{totalMaxScore(d, 'part3')}}
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="column is-3 card">
                   <span class="f-s-20px f-w-bold"> รวม ชาย </span>
                   <table class="table mg-auto is-bordered">
                     <tr>
@@ -219,30 +141,13 @@ export default {
       let result2 = data.part1.referee2.reduce((sum, d) => sum + parseInt(d.score), 0)
       let result3 = data.part1.referee3.reduce((sum, d) => sum + parseInt(d.score), 0)
 
-      let result4 = data.part2.referee1.reduce((sum, d) => sum + parseInt(d.score), 0)
-      let result5 = data.part2.referee2.reduce((sum, d) => sum + parseInt(d.score), 0)
-      let result6 = data.part2.referee3.reduce((sum, d) => sum + parseInt(d.score), 0)
-
-      let result7 = data.part3.referee1.reduce((sum, d) => sum + parseInt(d.score), 0)
-      let result8 = data.part3.referee2.reduce((sum, d) => sum + parseInt(d.score), 0)
-      let result9 = data.part3.referee3.reduce((sum, d) => sum + parseInt(d.score), 0)
-
-      return result1 + result2 + result3 + result4 + result5 + result6 + result7 + result8 + result9
+      return result1 + result2 + result3
     },
     sumMaxScore (data) {
       let result1 = data.part1.referee1.reduce((sum, d) => sum + parseInt(d.max), 0)
       let result2 = data.part1.referee2.reduce((sum, d) => sum + parseInt(d.max), 0)
       let result3 = data.part1.referee3.reduce((sum, d) => sum + parseInt(d.max), 0)
-
-      let result4 = data.part2.referee1.reduce((sum, d) => sum + parseInt(d.max), 0)
-      let result5 = data.part2.referee2.reduce((sum, d) => sum + parseInt(d.max), 0)
-      let result6 = data.part2.referee3.reduce((sum, d) => sum + parseInt(d.max), 0)
-
-      let result7 = data.part3.referee1.reduce((sum, d) => sum + parseInt(d.max), 0)
-      let result8 = data.part3.referee2.reduce((sum, d) => sum + parseInt(d.max), 0)
-      let result9 = data.part3.referee3.reduce((sum, d) => sum + parseInt(d.max), 0)
-
-      return result1 + result2 + result3 + result4 + result5 + result6 + result7 + result8 + result9
+      return result1 + result2 + result3
     }
   },
   created () {
@@ -271,7 +176,7 @@ export default {
 }
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/40797664_1871063649626396_6779287568119758848_n.png');
+  background:url('/static/img/BG-Clock.jpg');
   background-size: cover;
   background-position: center;
   max-height: calc(100vh - 30px);

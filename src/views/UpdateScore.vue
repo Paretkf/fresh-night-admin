@@ -11,7 +11,7 @@
             <div class="columns is-marginless is-paddingless">
               <div class="column is-6 card mg-vtc-20px" v-if="score.BOY">
                 <span class="f-s-24px f-w-bold">ผู้เข้าแข่งขัน {{selectScore[0]}} | สาขา : {{selectScore[2]}}</span>
-                <span class="f-s-18px f-w-bold">รอบที่ 1 <u>รอบการแสดงความสามารถพิเศษ</u></span>
+                <span class="f-s-18px f-w-bold"></span>
                 <div class="columns is-marginless is-paddingless f-s-14px" v-for="(a, index) in score.BOY[selectScore[0]].part1[user.id]" :key="'part1' + index">
                   <div class="column is-7">
                     <label class="">{{index + 1}}. </label>
@@ -21,32 +21,10 @@
                     <input class="w-80pct" step="1" min="0" :max="a.max" :value="a.score" type="range" @input="updateDataScore(`BOY/${selectScore[0]}/part1/${user.id}/${index}`, $event.target.value)"> <b class="f-s-20px">{{a.score}}</b>
                   </div>
                 </div>
-                <hr>
-                <span class="f-s-18px f-w-bold">รอบที่ 2 <u>รอบแนะนำตัว</u></span>
-                <div class="columns is-marginless is-paddingless f-s-14px" v-for="(a, index) in score.BOY[selectScore[0]].part2[user.id]" :key="'part2' + index">
-                  <div class="column is-7">
-                    <label class="">{{index + 1}}. </label>
-                    {{a.name}} ({{a.max}})
-                  </div>
-                  <div class="column is-5">
-                    <input class="w-80pct" step="1" min="0" :max="a.max" :value="a.score" type="range" @input="updateDataScore(`BOY/${selectScore[0]}/part2/${user.id}/${index}`, $event.target.value)"> <b class="f-s-20px">{{a.score}}</b>
-                  </div>
-                </div>
-                <hr>
-                <span class="f-s-18px f-w-bold">รอบที่ 3 <u>ตอบคำถาม</u></span>
-                <div class="columns is-marginless is-paddingless f-s-14px" v-for="(a, index) in score.BOY[selectScore[0]].part3[user.id]" :key="'part3' + index">
-                  <div class="column is-7">
-                    <label class="">{{index + 1}}. </label>
-                    {{a.name}} ({{a.max}})
-                  </div>
-                  <div class="column is-5">
-                    <input class="w-80pct" step="1" min="0" :max="a.max" :value="a.score" type="range"  @input="updateDataScore(`BOY/${selectScore[0]}/part3/${user.id}/${index}`, $event.target.value)"> <b class="f-s-20px">{{a.score}}</b>
-                  </div>
-                </div>
               </div>
               <div class="column is-6 card mg-vtc-20px" v-if="score.GIRL">
                 <span class="f-s-24px f-w-bold">ผู้เข้าแข่งขัน {{selectScore[1]}} | สาขา : {{selectScore[2]}}</span>
-                <span class="f-s-18px f-w-bold">รอบที่ 1 <u>รอบการแสดงความสามารถพิเศษ</u></span>
+                <span class="f-s-18px f-w-bold"></span>
                 <div class="columns is-marginless is-paddingless f-s-14px" v-for="(a, index) in score.GIRL[selectScore[1]].part1[user.id]" :key="'part1' + index">
                   <div class="column is-7">
                     <label class="">{{index + 1}}. </label>
@@ -54,28 +32,6 @@
                   </div>
                   <div class="column is-5">
                     <input class="w-80pct" step="1" min="0" :max="a.max" :value="a.score" type="range"  @input="updateDataScore(`GIRL/${selectScore[1]}/part1/${user.id}/${index}`, $event.target.value)"> <b class="f-s-20px">{{a.score}}</b>
-                  </div>
-                </div>
-                <hr>
-                <span class="f-s-18px f-w-bold">รอบที่ 2 <u>รอบแนะนำตัว</u></span>
-                <div class="columns is-marginless is-paddingless f-s-14px" v-for="(a, index) in score.GIRL[selectScore[1]].part2[user.id]" :key="'part2' + index">
-                  <div class="column is-7">
-                    <label class="">{{index + 1}}. </label>
-                    {{a.name}} ({{a.max}})
-                  </div>
-                  <div class="column is-5">
-                    <input class="w-80pct" step="1" min="0" :max="a.max" :value="a.score" type="range"  @input="updateDataScore(`GIRL/${selectScore[1]}/part2/${user.id}/${index}`, $event.target.value)"> <b class="f-s-20px">{{a.score}}</b>
-                  </div>
-                </div>
-                <hr>
-                <span class="f-s-18px f-w-bold">รอบที่ 3 <u>ตอบคำถาม</u></span>
-                <div class="columns is-marginless is-paddingless f-s-14px" v-for="(a, index) in score.GIRL[selectScore[1]].part3[user.id]" :key="'part3' + index">
-                  <div class="column is-7">
-                    <label class="">{{index + 1}}. </label>
-                    {{a.name}} ({{a.max}})
-                  </div>
-                  <div class="column is-5">
-                    <input class="w-80pct" step="1" min="0" :max="a.max" :value="a.score" type="range"  @input="updateDataScore(`GIRL/${selectScore[1]}/part3/${user.id}/${index}`, $event.target.value)"> <b class="f-s-20px">{{a.score}}</b>
                   </div>
                 </div>
               </div>
@@ -150,7 +106,7 @@ export default {
 }
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/40797664_1871063649626396_6779287568119758848_n.png');
+  background:url('/static/img/BG-Clock.jpg');
   background-size: cover;
   background-position: center;
   max-height: calc(100vh - 30px);

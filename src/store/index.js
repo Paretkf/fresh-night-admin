@@ -29,7 +29,7 @@ const state = {
   selectScore: [
     'B1',
     'G1',
-    'TA'
+    'INE'
   ]
 }
 

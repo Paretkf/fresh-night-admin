@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <img src="/static/img/40797664_1871063649626396_6779287568119758848_n.png" alt=""> -->
+    <!-- <img src="/static/img/BG-Clock.jpg" alt=""> -->
     <section class="hero is-success is-fullheight is-marginless is-paddingless">
       <div class="hero-body is-marginless is-paddingless">
         <div class="container has-text-centered">
@@ -88,7 +88,7 @@ export default {
 <style scoped>
 .hero.is-success {
   background: #F2F6FA;
-  background:url('/static/img/40797664_1871063649626396_6779287568119758848_n.png');
+  background:url('/static/img/BG-Clock.jpg');
   background-size: cover;
   background-position: center;
 }
